@@ -1,0 +1,71 @@
+Database Name: cakedb
+
+tables:
+1. registration:-
+
+CUST_REGISTRATION:
+
+CREATE TABLE cust_registration (
+customer_id SERIAL PRIMARY KEY,
+firstName VARCHAR(200) DEFAULT NULL,
+lastName VARCHAR(200) DEFAULT NULL,
+email VARCHAR(200) DEFAULT NULL,
+phone VARCHAR(10) DEFAULT NULL,
+password VARCHAR(100) DEFAULT NULL,
+birth_date DATE 
+
+)
+
+2. product:-
+
+CREATE TABLE product(
+ prod_id SERIAL PRIMARY KEY, 
+	category_id int,
+	prod_name VARCHAR(250) DEFAULT NULL,
+	prod_desc VARCHAR(250) DEFAULT NULL,
+	prod_price DECIMAL(13,2) DEFAULT NULL,
+	prod_weigth int DEFAULT NULL,
+	image_url VARCHAR(225)DEFAULT NULL,
+	CONSTRAINT fk_product_category
+      FOREIGN KEY(category_id) 
+	  REFERENCES product_category(cat_id)
+)
+INSERT INTO product(category_id,prod_name,prod_desc,prod_price,image_url)
+VALUES (1,'CARAMEL CUPCAKES','White Chocolate With Nuts',70,'../../assets/cakeimgs/cup1.jpg'),
+(1,'COOKIES AND CREAM','Sweetness Of Butter And Cookie',60,'../../assets/cakeimgs/cup2.jpg'),
+(1,'PEANUT BUTTER','Whipped Peanut Butter Frosting',60,'../../assets/cakeimgs/cup3.jpg'),
+(1,'COOKIE CRUNCH','Chocolate With Cookie Crunch',80,'../../assets/cakeimgs/cup4.jpg'),
+(1,' VANILLA CARAMEL','Vanilla Cream And Strawberry',75,'../../assets/cakeimgs/cup5.jpg'),
+(1,'GERMAN CHOCOLATE','Dark Chocolate With Dryfoods',65,'../../assets/cakeimgs/cup6.jpg'),
+(1,'REDVELVET CHEESE','RedVelvet Cream Cheese Cupcakes',80,'../../assets/cakeimgs/cup7.jpg'),
+(1,'REDVELVET FROSTING','RedVelvet With Chocolate Frosting',80,'../../assets/cakeimgs/cup8.jpg');
+
+(2,'CARAMEL CUPCAKES','White Chocolate With Nuts',70,'../../assets/cakeimgs/pin1.jpg'),
+(2,'COOKIES AND CREAM','Sweetness Of Butter And Cookie',60,'../../assets/cakeimgs/pin2.jpg'),
+(2,'PEANUT BUTTER','Whipped Peanut Butter Frosting',60,'../../assets/cakeimgs/pin3.jpg'),
+(2,'COOKIE CRUNCH','Chocolate With Cookie Crunch',80,'../../assets/cakeimgs/pin4.jpg'),
+(2,' VANILLA CARAMEL','Vanilla Cream And Strawberry',75,'../../assets/cakeimgs/pin5.jpg'),
+
+(3,'GERMAN CHOCOLATE','Dark Chocolate With Dryfoods',65,'../../assets/cakeimgs/chok6.jpg'),
+(3,'REDVELVET CHEESE','RedVelvet Cream Cheese Cupcakes',80,'../../assets/cakeimgs/chok7.jpg'),
+(3,'REDVELVET FROSTING','RedVelvet With Chocolate Frosting',80,'../../assets/cakeimgs/chok8.jpg');
+
+
+3. product category:-
+
+CREATE TABLE  product_category (
+  cat_id SERIAL PRIMARY KEY,
+  cat_name VARCHAR(255) DEFAULT NULL
+ )
+ 
+ INSERT INTO product_category(cat_name)
+VALUES('pineapple'),('chocolate'),('redvelvet'),('blackforest');
+ 
+-----------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
